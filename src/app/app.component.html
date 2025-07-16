@@ -1,8 +1,10 @@
 <main>
-  <h1 class="yellow">This is {{ title }}</h1>
-  <p [ngClass]="{ blue: true, red: false }">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae nobis velit aut debitis asperiores at necessitatibus
-    fugit officia. Doloremque explicabo accusantium distinctio ipsum rem iure sapiente. Tenetur reprehenderit tempore
-    fuga?
-  </p>
+  <app-child [title]="title" [name]="name" [obj]="obj"
+    ><p>
+      Some contents<br />
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni enim aperiam molestiae voluptatum! Sed,
+      aspernatur! Facilis tempore obcaecati ad enim eaque, dolorem nobis esse iusto iure consequatur sapiente, natus
+      debitis!
+    </p></app-child
+  >
 </main>
