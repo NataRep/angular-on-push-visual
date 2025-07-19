@@ -1,10 +1,14 @@
 <main>
-  <app-child [title]="title" [name]="name" [obj]="obj"
+  <!--<button (click)="showComponent()">Кнопка</button>-->
+  <button (click)="asyncShowComponent()">Кнопка динамической подгрузки компонента</button>
+  <button (click)="destroyAllDynamicComponents()">Удалить все динамические компоненты</button>
+  <ng-container #wrapper></ng-container>
+  <app-child
     ><p>
       Some contents<br />
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni enim aperiam molestiae voluptatum! Sed,
       aspernatur! Facilis tempore obcaecati ad enim eaque, dolorem nobis esse iusto iure consequatur sapiente, natus
       debitis!
-    </p></app-child
-  >
+    </p>
+  </app-child>
 </main>

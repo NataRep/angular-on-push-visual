@@ -6,10 +6,8 @@ import { AppComponent } from './app.component';
 import { CutTextPipe } from './pipes/cut-text.pipe';
 import { SortDatePipe } from './pipes/sort-date.pipe';
 import { ChildComponent } from './components/child/child.component';
-import { NgComponentExemplrComponent } from './components/ng-component-exemplr/ng-component-exemplr.component';
-
 @NgModule({
-  declarations: [AppComponent, CutTextPipe, SortDatePipe, ChildComponent, NgComponentExemplrComponent],
+  declarations: [AppComponent, CutTextPipe, SortDatePipe, ChildComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
