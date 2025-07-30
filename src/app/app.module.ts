@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CustomDirective } from './directives/custom.directive';
 import { FirstModule } from './modules/first/first.module';
 import { CutTextPipe } from './pipes/cut-text.pipe';
 import { SortDatePipe } from './pipes/sort-date.pipe';
@@ -18,7 +19,7 @@ import { YellowComponent } from './shared/components/yellow/yellow.component';
     YellowComponent,
     GreenComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FirstModule],
+  imports: [BrowserModule, AppRoutingModule, FirstModule, CustomDirective],
   providers: [],
   bootstrap: [AppComponent],
 })
