@@ -1,34 +1,37 @@
+import { AsyncPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { from, fromEvent, interval, Observable, of } from 'rxjs';
+import { interval, map, Observable, pairwise } from 'rxjs';
+import { ChildComponent } from "./components/child/child.component";
+
+export type Timer = {
+  prevValue: number,
+  currentValue: number,
+}
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, AsyncPipe, ChildComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  // changeDetection: ChangeDetectionStrategy.Default
 })
 export class AppComponent implements OnInit {
   title = 'angular-18';
+  myObservable$!: Observable<Timer>;
+  myPromise$!: Promise<unknown>
 
-  numberObservable$: Observable<number> = new Observable((subscriber) => {
-    subscriber.next(1);
-    subscriber.next(2);
-    subscriber.next(3);
-    subscriber.next(4);
-    subscriber.next(5);
-    subscriber.complete();
-  })
 
   ngOnInit() {
-    this.numberObservable$.subscribe(console.log);
+    this.myObservable$ = interval(1000).pipe(
+      pairwise(), // Преобразует в [prev, current]
+      map(([prevValue, currentValue]) => ({ prevValue, currentValue }))
+    );
 
-    console.log('______________________')
-
-    of(1,2,3,4,5).subscribe(console.log);
-    from([1,2,3,4,5]).subscribe(console.log);
-    fromEvent(document, 'click').subscribe(console.log);
-    interval(1000).subscribe(console.log);
+    this.myPromise$ = new Promise((resolve) => {
+      setTimeout(() => resolve('Promise успешно выполнен'), 3000)
+    }
+    )
   }
 }
