@@ -1,7 +1,6 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { interval, map, Observable, pairwise } from 'rxjs';
 import { ChildComponent } from "./components/child/child.component";
 
 export type Timer = {
@@ -15,23 +14,21 @@ export type Timer = {
   imports: [RouterOutlet, AsyncPipe, ChildComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  // changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit {
+export class AppComponent{
   title = 'angular-18';
-  myObservable$!: Observable<Timer>;
-  myPromise$!: Promise<unknown>
 
+  ngDoCheck(){
+    console.log("ngDoCheck app-root")
+  }
 
-  ngOnInit() {
-    this.myObservable$ = interval(1000).pipe(
-      pairwise(), // Преобразует в [prev, current]
-      map(([prevValue, currentValue]) => ({ prevValue, currentValue }))
-    );
+  ngAfterViewInit(){
+    console.log("ngAfterViewInit app-root")
+    setTimeout(()=> this.title = "Lesson ChangeDetectionStrategy", 3000)
+  }
 
-    this.myPromise$ = new Promise((resolve) => {
-      setTimeout(() => resolve('Promise успешно выполнен'), 3000)
-    }
-    )
+  clickHandler(){
+    console.log("Click!")
   }
 }
