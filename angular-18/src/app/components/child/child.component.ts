@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
+import { BaseComponent } from '../base-check/base-check.component';
 
 @Component({
   selector: 'app-child',
@@ -10,42 +11,31 @@ import { interval, Subscription } from 'rxjs';
   styleUrl: './child.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ChildComponent implements DoCheck {
+export class ChildComponent extends BaseComponent {
   timer = 0;
   isHighlighted = false;
-  lastCheck = new Date();
   private timerSubscription!: Subscription;
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef) {
+    super()
+  }
 
   ngOnInit() {
     this.startTimer();
   }
 
-  ngDoCheck() {
-    this.highlightForOneSecond();
-    this.lastCheck = new Date();
-  }
-
-  private highlightForOneSecond() {
-    // Устанавливаем класс
-    this.isHighlighted = true;
-
-    // Через 1 секунду убираем класс
-    setTimeout(() => {
-      this.isHighlighted = false;
-      this.cdr.markForCheck(); // Нужно для OnPush
-    }, 1000);
-  }
-
   private startTimer() {
     this.timerSubscription = interval(1000).subscribe(() => {
       this.timer++;
-      this.cdr.markForCheck(); // Триггерим проверку изменений
+      this.cdr.markForCheck();
     });
   }
 
   ngOnDestroy() {
     this.timerSubscription?.unsubscribe();
+  }
+
+  protected getCdr(): ChangeDetectorRef {
+    return this.cdr;
   }
 }
