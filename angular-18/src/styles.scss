@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  padding: 48px 64px;
+  color: #383838;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.component {
+  position: absolute;
+  background-color: #ebebeb;
+  border-radius: 32px;
+  border: solid 2px #b3b3b3;
+  padding: 24px 32px;
+  text-align: center;
+  width: max-content;
+  margin: auto;
+  transition: background 0.5s linear;
+}
+
+.component__title {
+  position: relative;
+  text-align: center;
+}
+
+.component.check {
+  animation: backgroundColor 2s linear;
+}
+
+.component:before {
+  content: "doCheck";
+  position: absolute;
+  top: 4px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  color: #6cc526;
+  font-size: 32px;
+  font-weight: 700;
+  z-index: 0;
+  opacity: 0;
+}
+
+.component.check:before {
+  animation: opacity 2s linear;
+}
+
+@keyframes opacity {
+  0%{ opacity: 0;}
+  20%{ opacity: 1;}
+  80%{ opacity: 1;}
+ 100%{ opacity: 0;}
+}
+
+@keyframes backgroundColor{
+  0%{ background-color: #ebebeb;}
+  20%{  background-color: #d9ff7f;}
+  80%{  background-color: #d9ff7f;}
+ 100%{background-color: #ebebeb;}
+}

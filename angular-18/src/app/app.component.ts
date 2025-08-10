@@ -1,34 +1,28 @@
-import { AsyncPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ChildComponent } from "./components/child/child.component";
-
-export type Timer = {
-  prevValue: number,
-  currentValue: number,
-}
+import { BaseComponent } from './components/base-check/base-check.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MainComponent } from "./components/main/main.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AsyncPipe, ChildComponent],
+  imports: [RouterOutlet, HeaderComponent, MainComponent, NgClass],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent{
-  title = 'angular-18';
 
-  ngDoCheck(){
-    console.log("ngDoCheck app-root")
+export class AppComponent extends BaseComponent {
+
+  title = 'ChangeDetectionStrategy.OnPush Visual Concept';
+
+  constructor(private cdr: ChangeDetectorRef) {
+    super();
   }
 
-  ngAfterViewInit(){
-    console.log("ngAfterViewInit app-root")
-    setTimeout(()=> this.title = "Lesson ChangeDetectionStrategy", 3000)
-  }
-
-  clickHandler(){
-    console.log("Click!")
+  protected getCdr(): ChangeDetectorRef {
+    return this.cdr;
   }
 }
