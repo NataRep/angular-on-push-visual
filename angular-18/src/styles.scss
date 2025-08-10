@@ -61,3 +61,15 @@ h1 {
   80%{  background-color: #d9ff7f;}
  100%{background-color: #ebebeb;}
 }
+
+button{
+  background-color: initial;
+  border-radius: 16px;
+  padding: 8px 16px;
+  margin-top: 16px;
+  border: solid 2px #b3b3b3;
+}
+
+button:active, button:hover{
+  background-color: #00000018;
+}

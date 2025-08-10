@@ -25,4 +25,8 @@ export class AppComponent extends BaseComponent {
   protected getCdr(): ChangeDetectorRef {
     return this.cdr;
   }
+
+  handlerClick() {
+    console.log(`Click ${this.constructor.name}`)
+  }
 }
