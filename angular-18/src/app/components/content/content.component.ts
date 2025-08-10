@@ -1,21 +1,19 @@
-import { NgClass } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { interval, Subscription } from 'rxjs';
-import { TimerPipe } from '../../pipes/timer.pipe';
+import { interval, map } from 'rxjs';
 import { BaseComponent } from '../base-check/base-check.component';
 import { ChildComponent } from '../child/child.component';
 
 @Component({
   selector: 'app-content',
   standalone: true,
-  imports: [ChildComponent, NgClass, TimerPipe],
+  imports: [ChildComponent, NgClass, AsyncPipe],
   templateUrl: './content.component.html',
   styleUrl: './content.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContentComponent extends BaseComponent {
-  timer: number = 0;
-  private timerSubscription!: Subscription;
+  timer$ = interval(1000).pipe(map((count) => count += 1));
 
   constructor(private cdr: ChangeDetectorRef) {
     super();
@@ -25,17 +23,4 @@ export class ContentComponent extends BaseComponent {
     return this.cdr;
   }
 
-  ngOnInit() {
-    this.startTick()
-  }
-
-  startTick() {
-    this.timerSubscription = interval(5000).subscribe(() => {
-      this.timer += 5;
-    });
-  }
-
-  ngOnDestroy() {
-    this.timerSubscription.unsubscribe();
-  }
 }
