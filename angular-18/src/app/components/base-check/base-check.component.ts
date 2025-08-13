@@ -3,22 +3,26 @@ import { ChangeDetectorRef, Directive, DoCheck } from '@angular/core';
 @Directive()
 export abstract class BaseComponent implements DoCheck {
   isCheck = false;
+  countDoCheck = 0;
 
   protected abstract getCdr(): ChangeDetectorRef;
 
   ngDoCheck() {
-    this.highlightForOneSecond();
-    console.log(`ngDoCheck: ${this.constructor.name}`)
+    if (this.countDoCheck % 2 === 0 && !this.isCheck) {
+      this.highlightForOneSecond();
+      console.log(`ngDoCheck: ${this.constructor.name}`)
+    }
+
+    this.countDoCheck++;
   }
 
   private highlightForOneSecond() {
     this.isCheck = true;
 
-    /*setTimeout(() => {
+    setTimeout(() => {
       this.isCheck = false;
-      this.getCdr().detectChanges(); // тут ухожу в рекурсию, так как detectChanges вызывает ngDoCheck
+      this.getCdr().detectChanges();
     }, 1000);
-    */
   }
 
 }

@@ -26,7 +26,7 @@ export class AppComponent extends BaseComponent {
     return this.cdr;
   }
 
-  handlerClick() {
-    console.log(`Click ${this.constructor.name}`)
+  onClick() {
+    console.log('click')
   }
 }

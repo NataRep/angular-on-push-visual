@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { BaseComponent } from '../base-check/base-check.component';
 
 @Component({
@@ -10,7 +10,7 @@ import { BaseComponent } from '../base-check/base-check.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildComponent extends BaseComponent {
-  @Input() timer: number | null = 0;
+  //  @Input() timer: number | null = 0;
 
   constructor(private cdr: ChangeDetectorRef) {
     super()
