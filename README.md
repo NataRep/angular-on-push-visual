@@ -11,9 +11,9 @@
 
 ## 🎮 Try It Now!
 
-[![Demo Screenshot](https://github-production-user-asset-6210df.s3.amazonaws.com/41197830/477550277-8f2fd808-90c2-43e0-9f31-8494980d5bb8.png)](https://angular-on-push-visual.netlify.app)
+**Live demo:** [https://your-demo-url.netlify.app](https://angular-on-push-visual.netlify.app)
 
-**Live demo:** [https://angular-on-push-visual.netlify.app](https://angular-on-push-visual.netlify.app)
+<img width="1218" height="836" alt="image" src="https://github.com/user-attachments/assets/8f2fd808-90c2-43e0-9f31-8494980d5bb8" />
 
 
 ## 🌟 Ключевые особенности
