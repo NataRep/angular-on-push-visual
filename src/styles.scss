@@ -27,6 +27,7 @@ h1 {
   border: solid 0.0625rem var(--border-color); 
   border-radius: 2rem; 
   padding: 1.5rem 2rem; 
+  font-size: 0.75rem;
   text-align: center;
   width: max-content;
   margin: auto;
@@ -38,6 +39,7 @@ h1 {
   position: relative;
   text-align: center;
   width: 100%;
+  font-size: 1rem;
   font-weight: 700;
   transition: color 0.2s linear, transform 0.2s linear;
 }

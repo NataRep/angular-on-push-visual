@@ -19,4 +19,6 @@ export class LogoComponent extends BaseComponent {
   protected getCdr(): ChangeDetectorRef {
     return this.cdr;
   }
+
+
 }
