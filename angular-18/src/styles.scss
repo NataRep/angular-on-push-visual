@@ -19,6 +19,7 @@ h1 {
   width: max-content;
   margin: auto;
   transition: background 0.5s linear;
+  cursor: pointer;
 }
 
 .component__title {
@@ -27,7 +28,7 @@ h1 {
 }
 
 .component.check {
-  animation: backgroundColor 2s linear;
+  animation: backgroundColor 1s linear;
 }
 
 .component:before {
@@ -45,13 +46,13 @@ h1 {
 }
 
 .component.check:before {
-  animation: opacity 2s linear;
+  animation: opacity 1s linear;
 }
 
 @keyframes opacity {
   0%{ opacity: 0;}
-  20%{ opacity: 1;}
-  80%{ opacity: 1;}
+  10%{ opacity: 1;}
+  90%{ opacity: 1;}
  100%{ opacity: 0;}
 }
 
@@ -68,6 +69,7 @@ button{
   padding: 8px 16px;
   margin-top: 16px;
   border: solid 2px #b3b3b3;
+  cursor: pointer;
 }
 
 button:active, button:hover{

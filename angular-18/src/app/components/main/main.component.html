@@ -1,4 +1,4 @@
-<div class="component" [ngClass]="{'check': isCheck}">
+<div class="component" (click)="onClick()" [ngClass]="{'check': isCheck}">
   <div class="component__title">MainComponent</div>
   <app-sidebar></app-sidebar>
   <app-content></app-content>

@@ -26,7 +26,4 @@ export class AppComponent extends BaseComponent {
     return this.cdr;
   }
 
-  onClick() {
-    console.log('click')
-  }
 }

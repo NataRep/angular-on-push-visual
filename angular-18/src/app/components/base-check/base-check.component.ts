@@ -10,7 +10,6 @@ export abstract class BaseComponent implements DoCheck {
   ngDoCheck() {
     if (this.countDoCheck % 2 === 0 && !this.isCheck) {
       this.highlightForOneSecond();
-      console.log(`ngDoCheck: ${this.constructor.name}`)
     }
 
     this.countDoCheck++;
@@ -23,6 +22,10 @@ export abstract class BaseComponent implements DoCheck {
       this.isCheck = false;
       this.getCdr().detectChanges();
     }, 1000);
+  }
+
+  onClick() {
+    console.log(`click ${this.constructor.name}`)
   }
 
 }

@@ -1,7 +1,6 @@
 <h1>{{ title }}</h1>
-<div class="component" [ngClass]="{'check': isCheck}" >
+<div class="component" [ngClass]="{'check': isCheck}" (click)="onClick()">
   <div class="component__title">AppComponent</div>
-  <button (click)="onClick()">Inside Event</button>
   <app-header></app-header>
   <app-main></app-main>
 </div>

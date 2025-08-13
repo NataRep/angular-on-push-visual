@@ -1,6 +1,5 @@
 import { AsyncPipe, NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { map, timer } from 'rxjs';
 import { BaseComponent } from '../base-check/base-check.component';
 import { ChildComponent } from '../child/child.component';
 
@@ -15,12 +14,9 @@ import { ChildComponent } from '../child/child.component';
 export class ContentComponent extends BaseComponent {
   count: number = 0;
 
-  singleAction$ = timer(5000).pipe(
-    map(() => {
-      this.count += 1;
-      return this.count;
-    })
-  );
+  incrementCount() {
+    this.count += 1;
+  }
 
   constructor(private cdr: ChangeDetectorRef) {
     super();
