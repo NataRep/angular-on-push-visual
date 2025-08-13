@@ -1,4 +1,4 @@
-<div class="component" [ngClass]="{'check': isCheck}">
+<div class="component" [ngClass]="{'check': isCheck}" (click)="$event.stopPropagation(); onClick()">
   <div class="component__title">Change input example</div>
       <p>Input count: {{ count || 0}}</p>
 </div>

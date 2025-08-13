@@ -1,5 +1,11 @@
-.component{
-    top: 0;
-    left: 0;
-    transform: translate(60%, 150%);   
+.component {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.children{
+    display: flex;
+    gap: 24px;
 }

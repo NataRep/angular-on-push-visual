@@ -1,8 +1,8 @@
-<div class="component" (click)="onClick()" [ngClass]="{'check': isCheck}">
+<div class="component" (click)="$event.stopPropagation(); onClick()" [ngClass]="{'check': isCheck}">
   <div class="component__title">HeaderComponent</div>
-  <div class="wrap">
-  <app-logo></app-logo>
-  <app-nav></app-nav>
+  <div class="wrap-children">
+    <app-logo></app-logo>
+    <app-nav></app-nav>
   </div>
 </div>
 

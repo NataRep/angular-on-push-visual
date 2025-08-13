@@ -1,9 +1,19 @@
-body {
-  width: 1280px;
+:root {
+--bg-page: #121212;
+--bg-component: #1e1e1e; 
+--text-color: #f0f0f0; 
+--border-color: #3a3a3a; 
+--primary-accent-color: #7ed957; 
+--secondary-accent-color: rgba(121, 202, 59, 0.4); 
+}
+
+body {    
+  max-width: max-content;
   height: 100vh;    
   margin: auto;
   padding: 48px 64px;
-  color: #383838;
+  color: var(--text-color);
+  background-color: var(--bg-page);
   font-family: Verdana, Geneva, sans-serif;
   
 }
@@ -13,10 +23,10 @@ h1 {
 }
 
 .component {
-  position: absolute;
-  background-color: #ebebeb;
+  position:relative;
+  background-color: var(--bg-component);
+  border: solid 1px var(--border-color);
   border-radius: 32px;
-  border: solid 2px #b3b3b3;
   padding: 24px 32px;
   text-align: center;
   width: max-content;
@@ -28,10 +38,14 @@ h1 {
 .component__title {
   position: relative;
   text-align: center;
+  width: 100%;
+  font-weight: 700;
+  transition: color 0.2s linear, transform 0.2s linear;
 }
 
-.component.check {
-  animation: backgroundColor 1s linear;
+.component.check > .component__title{
+  color: var(--primary-accent-color);
+  transform: scale(1.2);
 }
 
 .component:before {
@@ -41,7 +55,7 @@ h1 {
   left: 0;
   right: 0;
   margin: auto;
-  color: #6cc526;
+  color: var(--secondary-accent-color);
   font-size: 32px;
   font-weight: 700;
   z-index: 0;
@@ -59,22 +73,21 @@ h1 {
  100%{ opacity: 0;}
 }
 
-@keyframes backgroundColor{
-  0%{ background-color: #ebebeb;}
-  20%{  background-color: #d9ff7f;}
-  80%{  background-color: #d9ff7f;}
- 100%{background-color: #ebebeb;}
-}
-
 button{
   background-color: initial;
   border-radius: 16px;
   padding: 8px 16px;
   margin-top: 16px;
-  border: solid 2px #b3b3b3;
+  border: solid 2px var(--border-color);
+  color: var(--text-color);
   cursor: pointer;
 }
 
 button:active, button:hover{
   background-color: #00000018;
+}
+
+.wrap-children{
+  display: flex;
+  gap:24px
 }

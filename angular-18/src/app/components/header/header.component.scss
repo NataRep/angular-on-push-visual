@@ -1,5 +1,6 @@
-.component{
-    top: 0;
-    left: 0;
-    transform: translate(-150%, 150%);   
+.component {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
 }
