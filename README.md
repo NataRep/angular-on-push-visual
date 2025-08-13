@@ -1,27 +1,66 @@
-# Angular18
+# 🚀 Angular OnPush Change Detection Visualizer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+**Исследуем механизм обнаружения изменений в Angular через визуализацию**  
+Учебный проект с интерактивной демонстрацией работы `ChangeDetectionStrategy.OnPush`
 
-## Development server
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/NataRep/angular-visual-strategy-on-push)
+![Angular Version](https://img.shields.io/badge/Angular-18-%23DD0031)
+![RxJS](https://img.shields.io/badge/RxJS-7.8.0-%23B7178C)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🌟 Ключевые особенности
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 🎯 Визуализация работы DoCheck
+Проект наглядно демонстрирует, **когда именно** Angular выполняет проверку изменений в компонентах с OnPush стратегией:
 
-## Build
+```typescript
+@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+```
+### 🔍 Поддерживаемые сценарии и визуализация
+- Клик по компоненту	          - DOM события
+- Изменение @Input свойства	    - Входные параметры
+- Работа AsyncPipe	            - Подписки на Observable
+- Ручное управление детектором	-	markForCheck()
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+### 🛠 Технологический стек
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Angular 18 - фреймворк для построения приложения
 
-## Running end-to-end tests
+RxJS 7.8 - работа с асинхронными потоками
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+SCSS - стилизация компонентов
 
-## Further help
+TypeScript 5.3 - типизованная основа проекта
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 🚀 Быстрый старт
+bash
+# 1. Клонировать репозиторий
+git clone https://github.com/NataRep/angular-visual-strategy-on-push.git && cd angular-visual-strategy-on-push
+
+# 2. Установить зависимости
+npm install
+
+# 3. Запустить development сервер
+npm start
+Приложение будет доступно по адресу:
+👉 http://localhost:4200
+
+### 🤝 Как внести вклад
+Если вы хотите улучшить проект:
+
+1. Форкните репозиторий
+
+2. Создайте ветку с вашими изменениями (git checkout -b feature/amazing-feature)
+
+3. Сделайте коммит изменений (git commit -m 'Add some amazing feature')
+
+4. Запушьте ветку (git push origin feature/amazing-feature)
+
+5. Откройте Pull Request
+
+📄 Лицензия
+MIT © Наталья Репкина
