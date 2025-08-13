@@ -9,13 +9,11 @@
 
 body {    
   max-width: max-content;
-  height: 100vh;    
   margin: auto;
-  padding: 48px 64px;
+  padding: 3rem 4rem; 
   color: var(--text-color);
   background-color: var(--bg-page);
   font-family: Verdana, Geneva, sans-serif;
-  
 }
 
 h1 {
@@ -23,11 +21,11 @@ h1 {
 }
 
 .component {
-  position:relative;
+  position: relative;
   background-color: var(--bg-component);
-  border: solid 1px var(--border-color);
-  border-radius: 32px;
-  padding: 24px 32px;
+  border: solid 0.0625rem var(--border-color); 
+  border-radius: 2rem; 
+  padding: 1.5rem 2rem; 
   text-align: center;
   width: max-content;
   margin: auto;
@@ -43,7 +41,7 @@ h1 {
   transition: color 0.2s linear, transform 0.2s linear;
 }
 
-.component.check > .component__title{
+.component.check > .component__title {
   color: var(--primary-accent-color);
   transform: scale(1.2);
 }
@@ -51,12 +49,12 @@ h1 {
 .component:before {
   content: "doCheck";
   position: absolute;
-  top: 4px;
+  top: 0.25rem; 
   left: 0;
   right: 0;
   margin: auto;
   color: var(--secondary-accent-color);
-  font-size: 32px;
+  font-size: 2rem; 
   font-weight: 700;
   z-index: 0;
   opacity: 0;
@@ -67,39 +65,40 @@ h1 {
 }
 
 @keyframes opacity {
-  0%{ opacity: 0;}
-  10%{ opacity: 1;}
-  90%{ opacity: 1;}
- 100%{ opacity: 0;}
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
-button{
+button {
   background-color: var(--border-color);
   width: max-content;  
   margin: 0 auto 0;
-  padding: 8px 16px;  
-  border-radius: 16px;
-  border: solid 2px var(--border-color);
+  padding: 0.5rem 1rem; 
+  border-radius: 1rem;
+  border: solid 0.125rem var(--border-color); 
   color: var(--text-color);
   font-weight: 600;
   cursor: pointer;
 }
 
-button:active, button:hover{
-  background-color: #00000018;
+button:active, 
+button:hover {
+  background-color: var(--bg-component);
 }
 
-.wrap-children{
+.wrap-children {
   display: flex;
-  gap:24px
+  gap: 1.5rem; 
 }
 
-.copyright{
-  margin-top: 2rem;
+.copyright {
+  margin-top: 2rem; 
   text-align: right;
 }
 
-.copyright a{
+.copyright a {
   font-size: 0.75rem;
   text-decoration: none;
   color: var(--text-color);
