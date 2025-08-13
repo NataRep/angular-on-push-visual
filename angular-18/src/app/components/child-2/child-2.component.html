@@ -1,0 +1,7 @@
+<div class="component" [ngClass]="{'check': isCheck}">
+  <div class="component__title">Async pipe example</div>
+      <p>Async data: {{ (timer$ | async) ?? lastNumber }}</p>
+      <button (click)="startTimer()">Start stream</button>
+      <button (click)="stopTimer()">Stop stream</button>
+</div>
+

@@ -11,7 +11,7 @@ import { BaseComponent } from '../base-check/base-check.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildComponent extends BaseComponent {
-  @Input() timer: number | null = 0;
+  @Input() count: number | null = 0;
 
   constructor(private cdr: ChangeDetectorRef) {
     super()
