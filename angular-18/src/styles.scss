@@ -74,12 +74,14 @@ h1 {
 }
 
 button{
-  background-color: initial;
+  background-color: var(--border-color);
+  width: max-content;  
+  margin: 0 auto 0;
+  padding: 8px 16px;  
   border-radius: 16px;
-  padding: 8px 16px;
-  margin-top: 16px;
   border: solid 2px var(--border-color);
   color: var(--text-color);
+  font-weight: 600;
   cursor: pointer;
 }
 
@@ -90,4 +92,15 @@ button:active, button:hover{
 .wrap-children{
   display: flex;
   gap:24px
+}
+
+.copyright{
+  margin-top: 2rem;
+  text-align: right;
+}
+
+.copyright a{
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: var(--text-color);
 }

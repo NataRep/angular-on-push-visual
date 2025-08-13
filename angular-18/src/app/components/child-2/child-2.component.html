@@ -1,7 +1,8 @@
 <div class="component" [ngClass]="{'check': isCheck}" (click)="$event.stopPropagation(); onClick()">
   <div class="component__title">Async pipe example</div>
-      <p>Async data: {{ (timer$ | async) ?? lastNumber }}</p>
-      <button (click)="$event.stopPropagation(); startTimer()">Start stream</button>
-      <button (click)="$event.stopPropagation(); stopTimer()">Stop stream</button>
+  <p>Async data: {{ (timer$ | async) ?? lastNumber }}</p>
+  <div class="row">
+    <button (click)="$event.stopPropagation(); startTimer()">Start stream</button>
+    <button (click)="$event.stopPropagation(); stopTimer()">Stop stream</button>
+  </div>
 </div>
-
