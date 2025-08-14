@@ -1,6 +1,6 @@
 import { AsyncPipe, NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { interval, Observable, Subject, takeUntil, tap } from 'rxjs';
+import { interval, Observable, takeUntil, tap } from 'rxjs';
 import { BaseComponent } from '../base-check/base-check.component';
 
 @Component({
@@ -15,7 +15,6 @@ export class Child2Component extends BaseComponent {
   timer = 0;
   timer$: Observable<number> | null = null;
   protected lastNumber = 0;
-  private destroy$ = new Subject<void>()
 
   constructor(private cdr: ChangeDetectorRef) {
     super()
@@ -28,7 +27,7 @@ export class Child2Component extends BaseComponent {
   startTimer() {
     this.stopTimer();
 
-    this.timer$ = interval(500).pipe(
+    this.timer$ = interval(1150).pipe(
       tap(value => {
         this.lastNumber = value;
         this.getCdr().markForCheck();
@@ -43,8 +42,9 @@ export class Child2Component extends BaseComponent {
     this.getCdr().markForCheck();
   }
 
-  ngOnDestroy() {
+  override ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
+    super.ngOnDestroy()
   }
 }

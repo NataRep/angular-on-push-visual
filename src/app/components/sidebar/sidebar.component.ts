@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
-import { Subject, takeUntil, timer } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { takeUntil, timer } from 'rxjs';
 import { BaseComponent } from '../base-check/base-check.component';
 
 @Component({
@@ -11,9 +11,8 @@ import { BaseComponent } from '../base-check/base-check.component';
   styleUrl: './sidebar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SidebarComponent extends BaseComponent {
+export class SidebarComponent extends BaseComponent implements OnDestroy {
   text = "";
-  private destroy$ = new Subject<void>();
 
   constructor(private cdr: ChangeDetectorRef) {
     super();
@@ -33,8 +32,9 @@ export class SidebarComponent extends BaseComponent {
     });
   }
 
-  ngOnDestroy() {
+  override ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
+    super.ngOnDestroy()
   }
 }
